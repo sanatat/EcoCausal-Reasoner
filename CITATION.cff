@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this research software, please cite its repository and version. The bundled evidence examples are synthetic, not ecological observations."
+title: "EcoCausal-Reasoner: An offline provenance-aware scientific evidence prototype"
+type: software
+authors:
+  - family-names: Tat
+    given-names: Sana
+version: 0.2.0
+date-released: 2026-11-11
+license: MIT
+abstract: >-
+  A reproducible research-software prototype for lexical evidence retrieval,
+  deterministic multi-role orchestration, provenance-aware RDF/SPARQL candidate
+  relations, and synthetic causal and world-model analysis. Optional
+  transformer, dense retrieval, LLM and LoRA adapters are not validated by
+  the packaged offline benchmark.

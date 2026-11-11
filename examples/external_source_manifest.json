@@ -1,0 +1,8 @@
+{
+  "status": "source candidates; NOT ingested in this release",
+  "sources": [
+    {"name": "EPA NLA 2022", "url": "https://www.epa.gov/national-aquatic-resource-surveys/reports-and-data-national-lakes-assessment-2022", "use": "lake water-quality observations", "limitations": "check survey weights, variable units, sampling and release version"},
+    {"name": "USGS Nonindigenous Aquatic Species", "url": "https://nas.er.usgs.gov/", "use": "nonindigenous freshwater occurrences", "limitations": "occurrence does not prove effects or causality"},
+    {"name": "OpenAlex", "url": "https://help.openalex.org/api/", "use": "scholarly metadata and attributed abstracts", "limitations": "fulltext access and licensing independent of metadata"}
+  ]
+}

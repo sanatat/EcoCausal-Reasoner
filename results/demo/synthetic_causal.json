@@ -1,0 +1,39 @@
+{
+  "estimated_ate": 3.176636972185731,
+  "bootstrap_95_interval": [
+    2.893450836147851,
+    3.3616353103495533
+  ],
+  "p0": 0.08,
+  "p1": 0.12,
+  "adjustment_set": [
+    "land_use",
+    "temperature"
+  ],
+  "interpretation": "synthetic SCM only; not an empirical lake effect",
+  "scm_true_ate": 3.1999999999999993,
+  "absolute_error": 0.023363027814268467,
+  "observational_correlations_are_not_causal_evidence": true,
+  "dag_edges": [
+    [
+      "land_use",
+      "phosphorus"
+    ],
+    [
+      "land_use",
+      "temperature"
+    ],
+    [
+      "land_use",
+      "chlorophyll_a"
+    ],
+    [
+      "phosphorus",
+      "chlorophyll_a"
+    ],
+    [
+      "temperature",
+      "chlorophyll_a"
+    ]
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "synthetic_scm": {
+    "estimated_ate": 3.2413897078688048,
+    "bootstrap_95_interval": [
+      3.064972764304346,
+      3.417144475852366
+    ],
+    "p0": 0.08,
+    "p1": 0.12,
+    "adjustment_set": [
+      "land_use",
+      "temperature"
+    ],
+    "interpretation": "synthetic SCM only; not an empirical lake effect",
+    "scm_true_ate": 3.1999999999999993,
+    "absolute_error": 0.04138970786880547,
+    "observational_correlations_are_not_causal_evidence": true,
+    "dag_edges": [
+      [
+        "land_use",
+        "phosphorus"
+      ],
+      [
+        "land_use",
+        "temperature"
+      ],
+      [
+        "land_use",
+        "chlorophyll_a"
+      ],
+      [
+        "phosphorus",
+        "chlorophyll_a"
+      ],
+      [
+        "temperature",
+        "chlorophyll_a"
+      ]
+    ]
+  },
+  "synthetic_world_model": {
+    "one_step_rmse": 0.34406171493701715,
+    "persistence_rmse": 0.4080188860385402,
+    "mean_open_loop_rollout_rmse": 1.0534271718936072,
+    "predicted_15_step_chlorophyll_difference_under_30pct_action_reduction": -2.11514613506162,
+    "coefficients": [
+      [
+        0.7065060275661867,
+        -0.0001666820580804895,
+        8.719904752272551e-06,
+        0.27888348472660845
+      ],
+      [
+        27.025974463206047,
+        0.6602164182799377,
+        0.12074478600754567,
+        -0.07703367585649713
+      ],
+      [
+        3.2442008478625364,
+        -0.07153509789960344,
+        1.0040954820638766,
+        0.4725242712382176
+      ]
+    ],
+    "intercept": [
+      0.003924587044494374,
+      0.5052307008413521,
+      0.6617436509986483
+    ],
+    "action": "synthetic exogenous phosphorus input",
+    "data_provenance": "synthetic action-conditioned trajectories only",
+    "does_not_establish_real_ecosystem_prediction": true
+  }
+}

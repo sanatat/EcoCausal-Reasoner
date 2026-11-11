@@ -1,0 +1,242 @@
+{
+  "execution_mode": "deterministic_offline_baseline",
+  "report": {
+    "question": "Does reducing phosphorus change chlorophyll-a in lakes?",
+    "status": "descriptive_only",
+    "cited_evidence": [
+      {
+        "source_id": "demo:design-a",
+        "page": 1,
+        "text": "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect.",
+        "evidence_kind": "synthetic_demo",
+        "source_url": null,
+        "file_sha256": null,
+        "confidence": null
+      },
+      {
+        "source_id": "demo:phosphorus-b",
+        "page": 1,
+        "text": "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed.",
+        "evidence_kind": "synthetic_demo",
+        "source_url": null,
+        "file_sha256": null,
+        "confidence": null
+      },
+      {
+        "source_id": "demo:phosphorus-c",
+        "page": 1,
+        "text": "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature.",
+        "evidence_kind": "synthetic_demo",
+        "source_url": null,
+        "file_sha256": null,
+        "confidence": null
+      },
+      {
+        "source_id": "demo:confounder-a",
+        "page": 1,
+        "text": "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association.",
+        "evidence_kind": "synthetic_demo",
+        "source_url": null,
+        "file_sha256": null,
+        "confidence": null
+      },
+      {
+        "source_id": "demo:phosphorus-a",
+        "page": 1,
+        "text": "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather.",
+        "evidence_kind": "synthetic_demo",
+        "source_url": null,
+        "file_sha256": null,
+        "confidence": null
+      }
+    ],
+    "summary": "Candidate relations were extracted with source citations; no empirical causal inference.",
+    "limitations": [
+      "Candidate claims are unverified; verbatim quotes do not establish entailment or causality.",
+      "Relevance gates are heuristic, not validated on real scientific corpora.",
+      "No independent scientific verification of retrieved assertions.",
+      "Graph relations do not demonstrate causation.",
+      "Synthetic SCM outputs are separate from ecological evidence and effects.",
+      "Offline agents are deterministic Python roles, not LLM multi-agent inference.",
+      "Retrieved examples contain fictional synthetic demo text, not peer-reviewed evidence."
+    ],
+    "agent_trace": [
+      {
+        "agent": "planner",
+        "action": "form_search_query",
+        "status": "ok",
+        "details": {
+          "query": "Does reducing phosphorus change chlorophyll-a in lakes?",
+          "motivation": "direct lexical baseline"
+        }
+      },
+      {
+        "agent": "evidence",
+        "action": "retrieve",
+        "status": "ok",
+        "details": {
+          "ids": [
+            "demo:design-a",
+            "demo:phosphorus-b",
+            "demo:phosphorus-c",
+            "demo:confounder-a",
+            "demo:phosphorus-a"
+          ],
+          "scores": [
+            0.03279,
+            0.03226,
+            0.0315,
+            0.0315,
+            0.03077
+          ]
+        }
+      },
+      {
+        "agent": "extractor",
+        "action": "extract",
+        "status": "ok",
+        "details": {
+          "count": 5
+        }
+      },
+      {
+        "agent": "critic",
+        "action": "review",
+        "status": "ok",
+        "details": {
+          "accept": true,
+          "problems": [
+            "Topical and provenance checks only; no semantic expert judgment"
+          ],
+          "revised_query": null
+        }
+      },
+      {
+        "agent": "graph",
+        "action": "build_rdf_from_accepted_candidates",
+        "status": "ok",
+        "details": {
+          "triples": 56,
+          "accepted_candidate_count": 5
+        }
+      },
+      {
+        "agent": "causal",
+        "action": "separate_synthetic_scm_demo",
+        "status": "ok",
+        "details": {
+          "scope": "unrelated synthetic SCM; not inferred from retrieved sources"
+        }
+      }
+    ],
+    "claim_ids": [
+      "claim:1",
+      "claim:2",
+      "claim:3",
+      "claim:4",
+      "claim:5"
+    ],
+    "candidate_claims": [
+      {
+        "claim_id": "claim:1",
+        "subject": "chlorophyll-a",
+        "predicate": "co_mentioned_with",
+        "object": "phosphorus",
+        "polarity": "uncertain",
+        "epistemic_status": "illustrative",
+        "evidence": {
+          "source_id": "demo:design-a",
+          "page": 1,
+          "text": "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect.",
+          "evidence_kind": "synthetic_demo",
+          "source_url": null,
+          "file_sha256": null,
+          "confidence": null
+        },
+        "quote": "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect.",
+        "conditions": ""
+      },
+      {
+        "claim_id": "claim:2",
+        "subject": "chlorophyll-a",
+        "predicate": "co_mentioned_with",
+        "object": "phosphorus",
+        "polarity": "uncertain",
+        "epistemic_status": "illustrative",
+        "evidence": {
+          "source_id": "demo:phosphorus-b",
+          "page": 1,
+          "text": "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed.",
+          "evidence_kind": "synthetic_demo",
+          "source_url": null,
+          "file_sha256": null,
+          "confidence": null
+        },
+        "quote": "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed.",
+        "conditions": ""
+      },
+      {
+        "claim_id": "claim:3",
+        "subject": "chlorophyll-a",
+        "predicate": "co_mentioned_with",
+        "object": "phosphorus",
+        "polarity": "uncertain",
+        "epistemic_status": "illustrative",
+        "evidence": {
+          "source_id": "demo:phosphorus-c",
+          "page": 1,
+          "text": "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature.",
+          "evidence_kind": "synthetic_demo",
+          "source_url": null,
+          "file_sha256": null,
+          "confidence": null
+        },
+        "quote": "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature.",
+        "conditions": ""
+      },
+      {
+        "claim_id": "claim:4",
+        "subject": "chlorophyll-a",
+        "predicate": "co_mentioned_with",
+        "object": "phosphorus",
+        "polarity": "uncertain",
+        "epistemic_status": "illustrative",
+        "evidence": {
+          "source_id": "demo:confounder-a",
+          "page": 1,
+          "text": "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association.",
+          "evidence_kind": "synthetic_demo",
+          "source_url": null,
+          "file_sha256": null,
+          "confidence": null
+        },
+        "quote": "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association.",
+        "conditions": ""
+      },
+      {
+        "claim_id": "claim:5",
+        "subject": "chlorophyll-a",
+        "predicate": "co_mentioned_with",
+        "object": "phosphorus",
+        "polarity": "uncertain",
+        "epistemic_status": "illustrative",
+        "evidence": {
+          "source_id": "demo:phosphorus-a",
+          "page": 1,
+          "text": "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather.",
+          "evidence_kind": "synthetic_demo",
+          "source_url": null,
+          "file_sha256": null,
+          "confidence": null
+        },
+        "quote": "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather.",
+        "conditions": ""
+      }
+    ]
+  },
+  "model_identifiers": {
+    "embedding": null,
+    "reranker": null,
+    "llm": null
+  }
+}

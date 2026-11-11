@@ -1,0 +1,12 @@
+{"source_id": "demo:phosphorus-a", "page": 1, "text": "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:phosphorus-b", "page": 1, "text": "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:phosphorus-c", "page": 1, "text": "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:temperature-a", "page": 1, "text": "A hypothetical warm year increases algal biomass and chlorophyll-a independently of nutrient loading.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:zebra-a", "page": 1, "text": "A fictional lake monitoring record describes zebra mussel filtration associated with increased water clarity.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:zebra-b", "page": 1, "text": "Synthetic illustration: zebra mussel abundance and chlorophyll-a may change in opposite directions, but measurement bias is possible.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:clarity-a", "page": 1, "text": "In an invented ecology lesson, water clarity increases when suspended sediment decreases.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:landuse-a", "page": 1, "text": "A fabricated watershed example describes land use intensity increasing runoff and phosphorus inputs.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:confounder-a", "page": 1, "text": "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:sediment-a", "page": 1, "text": "A made-up sediment monitoring exercise uses turbidity but does not measure biological responses.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:design-a", "page": 1, "text": "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect.", "evidence_kind": "synthetic_demo"}
+{"source_id": "demo:unrelated-a", "page": 1, "text": "Synthetic quality-control note: sample labels and laboratory blanks should be reviewed before making environmental claims.", "evidence_kind": "synthetic_demo"}

@@ -1,0 +1,43 @@
+name: Offline Python validation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install offline dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Test source
+        run: |
+          python -m compileall -q src tests
+          python -m pytest -q --disable-warnings
+          python -m pip check
+          python scripts/prepublish_check.py
+      - name: Offline CLI smoke test
+        run: |
+          ecocausal demo --output results/ci_demo
+          ecocausal evaluate --output results/ci_retrieval.json
+          ecocausal simulate --output results/ci_sim.json
+          ecocausal demo --query 'Quantum tunneling in brown dwarfs' --output results/ci_negative
+          python - <<'PY_CHECK'
+          import json
+          from pathlib import Path
+          base=Path('results/ci_negative')
+          d=json.loads((base/'report.json').read_text())
+          assert d['report']['status']=='insufficient_evidence'
+          assert not d['report']['cited_evidence']
+          assert not d['report']['candidate_claims']
+          assert not (base/'synthetic_causal.json').exists()
+          print('Abstention smoke test passed')
+          PY_CHECK

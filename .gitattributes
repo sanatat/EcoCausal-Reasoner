@@ -1,0 +1,11 @@
+# Ensure executable scripts and portable text line endings
+*.py text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+*.ttl text eol=lf
+*.sh text eol=lf

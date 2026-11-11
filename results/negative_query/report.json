@@ -1,0 +1,82 @@
+{
+  "execution_mode": "deterministic_offline_baseline",
+  "report": {
+    "question": "Quantum tunneling in brown dwarfs",
+    "status": "insufficient_evidence",
+    "cited_evidence": [],
+    "summary": "Insufficient topic-grounded evidence; abstain from scientific conclusions.",
+    "limitations": [
+      "Candidate claims are unverified; verbatim quotes do not establish entailment or causality.",
+      "Relevance gates are heuristic, not validated on real scientific corpora.",
+      "No independent scientific verification of retrieved assertions.",
+      "Graph relations do not demonstrate causation.",
+      "Synthetic SCM outputs are separate from ecological evidence and effects.",
+      "Offline agents are deterministic Python roles, not LLM multi-agent inference.",
+      "The critic rejected these claims; no relations were included in the final graph."
+    ],
+    "agent_trace": [
+      {
+        "agent": "planner",
+        "action": "form_search_query",
+        "status": "ok",
+        "details": {
+          "query": "Quantum tunneling in brown dwarfs",
+          "motivation": "direct lexical baseline"
+        }
+      },
+      {
+        "agent": "evidence",
+        "action": "retrieve",
+        "status": "ok",
+        "details": {
+          "ids": [],
+          "scores": []
+        }
+      },
+      {
+        "agent": "extractor",
+        "action": "extract",
+        "status": "skipped",
+        "details": {
+          "count": 0
+        }
+      },
+      {
+        "agent": "critic",
+        "action": "review",
+        "status": "ok",
+        "details": {
+          "accept": false,
+          "problems": [
+            "No retrieved evidence"
+          ],
+          "revised_query": null
+        }
+      },
+      {
+        "agent": "graph",
+        "action": "build_rdf_from_accepted_candidates",
+        "status": "ok",
+        "details": {
+          "triples": 0,
+          "accepted_candidate_count": 0
+        }
+      },
+      {
+        "agent": "causal",
+        "action": "separate_synthetic_scm_demo",
+        "status": "skipped",
+        "details": {
+          "scope": "unrelated synthetic SCM; not inferred from retrieved sources"
+        }
+      }
+    ],
+    "claim_ids": [],
+    "candidate_claims": []
+  },
+  "model_identifiers": {
+    "embedding": null,
+    "reranker": null,
+    "llm": null
+  }
+}

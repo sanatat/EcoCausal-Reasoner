@@ -1,0 +1,72 @@
+@prefix ec: <https://example.org/ecocausal/ontology/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/ecocausal/record/claim/claim_1> a ec:Claim ;
+    prov:wasDerivedFrom <https://example.org/ecocausal/record/source/demo%3Adesign-a> ;
+    ec:epistemicStatus "illustrative" ;
+    ec:object "phosphorus" ;
+    ec:polarity "uncertain" ;
+    ec:predicate "co_mentioned_with" ;
+    ec:subject "chlorophyll-a" ;
+    ec:supportingQuote "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect." .
+
+<https://example.org/ecocausal/record/claim/claim_2> a ec:Claim ;
+    prov:wasDerivedFrom <https://example.org/ecocausal/record/source/demo%3Aphosphorus-b> ;
+    ec:epistemicStatus "illustrative" ;
+    ec:object "phosphorus" ;
+    ec:polarity "uncertain" ;
+    ec:predicate "co_mentioned_with" ;
+    ec:subject "chlorophyll-a" ;
+    ec:supportingQuote "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed." .
+
+<https://example.org/ecocausal/record/claim/claim_3> a ec:Claim ;
+    prov:wasDerivedFrom <https://example.org/ecocausal/record/source/demo%3Aphosphorus-c> ;
+    ec:epistemicStatus "illustrative" ;
+    ec:object "phosphorus" ;
+    ec:polarity "uncertain" ;
+    ec:predicate "co_mentioned_with" ;
+    ec:subject "chlorophyll-a" ;
+    ec:supportingQuote "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature." .
+
+<https://example.org/ecocausal/record/claim/claim_4> a ec:Claim ;
+    prov:wasDerivedFrom <https://example.org/ecocausal/record/source/demo%3Aconfounder-a> ;
+    ec:epistemicStatus "illustrative" ;
+    ec:object "phosphorus" ;
+    ec:polarity "uncertain" ;
+    ec:predicate "co_mentioned_with" ;
+    ec:subject "chlorophyll-a" ;
+    ec:supportingQuote "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association." .
+
+<https://example.org/ecocausal/record/claim/claim_5> a ec:Claim ;
+    prov:wasDerivedFrom <https://example.org/ecocausal/record/source/demo%3Aphosphorus-a> ;
+    ec:epistemicStatus "illustrative" ;
+    ec:object "phosphorus" ;
+    ec:polarity "uncertain" ;
+    ec:predicate "co_mentioned_with" ;
+    ec:subject "chlorophyll-a" ;
+    ec:supportingQuote "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather." .
+
+<https://example.org/ecocausal/record/source/demo%3Aconfounder-a> ec:evidenceKind "synthetic_demo" ;
+    ec:excerpt "An illustrative causal diagram considers land use and temperature as confounders of the phosphorus and chlorophyll-a association." ;
+    ec:page 1 .
+
+<https://example.org/ecocausal/record/source/demo%3Adesign-a> ec:evidenceKind "synthetic_demo" ;
+    ec:excerpt "In a synthetic randomized intervention, a phosphorus reduction changes chlorophyll-a, but the result does not estimate any real lake effect." ;
+    ec:page 1 .
+
+<https://example.org/ecocausal/record/source/demo%3Aphosphorus-a> ec:evidenceKind "synthetic_demo" ;
+    ec:excerpt "A hypothetical lake management study reports phosphorus declining after a planned intervention, followed by lower chlorophyll-a under stable weather." ;
+    ec:page 1 .
+
+<https://example.org/ecocausal/record/source/demo%3Aphosphorus-b> ec:evidenceKind "synthetic_demo" ;
+    ec:excerpt "In an illustrative observational record, phosphorus and chlorophyll-a are positively associated. No causal experiment was performed." ;
+    ec:page 1 .
+
+<https://example.org/ecocausal/record/source/demo%3Aphosphorus-c> ec:evidenceKind "synthetic_demo" ;
+    ec:excerpt "A synthetic example shows phosphorus decreasing but chlorophyll-a staying high during a period of elevated temperature." ;
+    ec:page 1 .
+
+ec:Claim rdfs:label "Unverified text-derived candidate relation" .
+

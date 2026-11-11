@@ -1,0 +1,64 @@
+{
+  "mode": "lexical_tfidf_bm25",
+  "rerank_enabled": false,
+  "questions": [
+    {
+      "question": "phosphorus and chlorophyll-a in lakes",
+      "ranked_ids": [
+        "demo:phosphorus-b",
+        "demo:phosphorus-c",
+        "demo:confounder-a",
+        "demo:design-a",
+        "demo:phosphorus-a"
+      ],
+      "recall@5": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "question": "zebra mussel effects on water clarity",
+      "ranked_ids": [
+        "demo:zebra-a",
+        "demo:clarity-a",
+        "demo:zebra-b"
+      ],
+      "recall@5": 1.0,
+      "ndcg@5": 1.0
+    },
+    {
+      "question": "temperature and algal biomass",
+      "ranked_ids": [
+        "demo:temperature-a",
+        "demo:phosphorus-c",
+        "demo:confounder-a"
+      ],
+      "recall@5": 1.0,
+      "ndcg@5": 1.0
+    }
+  ],
+  "hard_negative_queries": [
+    {
+      "query": "Quantum tunneling in brown dwarfs",
+      "returned_ids": []
+    },
+    {
+      "query": "Quantum tunneling in lake phosphorus samples",
+      "returned_ids": []
+    },
+    {
+      "query": "Neutron stars and dark matter spectroscopy",
+      "returned_ids": []
+    },
+    {
+      "query": "Black hole angular momentum and zebra mussels",
+      "returned_ids": []
+    },
+    {
+      "query": "Topological superconductivity in laboratory blanks",
+      "returned_ids": []
+    }
+  ],
+  "hard_negative_false_positive_rate": 0.0,
+  "mean_recall": 1.0,
+  "mean_ndcg": 1.0,
+  "qrels_origin": "hand-constructed synthetic demonstrations, NOT expert-grounded"
+}

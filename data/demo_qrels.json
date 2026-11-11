@@ -1,0 +1,26 @@
+[
+  {
+    "query": "phosphorus and chlorophyll-a in lakes",
+    "relevant_ids": [
+      "demo:phosphorus-a",
+      "demo:phosphorus-b",
+      "demo:phosphorus-c",
+      "demo:confounder-a",
+      "demo:design-a"
+    ]
+  },
+  {
+    "query": "zebra mussel effects on water clarity",
+    "relevant_ids": [
+      "demo:zebra-a",
+      "demo:clarity-a"
+    ]
+  },
+  {
+    "query": "temperature and algal biomass",
+    "relevant_ids": [
+      "demo:temperature-a",
+      "demo:phosphorus-c"
+    ]
+  }
+]
