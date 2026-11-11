@@ -29,6 +29,16 @@ jobs:
           ecocausal demo --output results/ci_demo
           ecocausal evaluate --output results/ci_retrieval.json
           ecocausal simulate --output results/ci_sim.json
+          python scripts/plot_results.py --results-dir results --out-dir results/ci_figures
+          python - <<'PY_FIGURES'
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          for name in ('retrieval_benchmark', 'synthetic_causal_effect', 'synthetic_world_model_rmse', 'evidence_provenance'):
+              p = Path('results/ci_figures') / f'{name}.svg'
+              assert p.exists() and p.stat().st_size > 500
+              assert ET.parse(p).getroot().tag.endswith('svg')
+          print('Output-derived figure smoke test passed')
+          PY_FIGURES
           ecocausal demo --query 'Quantum tunneling in brown dwarfs' --output results/ci_negative
           python - <<'PY_CHECK'
           import json
