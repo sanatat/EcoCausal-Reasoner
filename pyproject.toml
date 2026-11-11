@@ -19,7 +19,7 @@ semantic = ["sentence-transformers>=3,<6", "faiss-cpu>=1.9"]
 transformers = ["transformers>=4.44,<5", "torch>=2.2", "datasets>=3,<5", "accelerate>=1,<2", "pillow>=10"]
 finetune = ["transformers>=4.44,<5", "torch>=2.2", "peft>=0.12,<1", "accelerate>=1,<2"]
 causal = ["dowhy>=0.12", "pandas>=2.0", "statsmodels>=0.14"]
-dev = ["pytest>=8,<10"]
+dev = ["pytest>=8,<10", "pillow>=10"]
 
 [project.scripts]
 ecocausal = "ecocausal.cli:main"
