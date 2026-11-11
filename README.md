@@ -12,6 +12,25 @@ Can an AI workflow assess the question **“Does reducing phosphorus change chlo
 
 This repository addresses the *method* of evidence organization and evaluation. It does **not** establish an empirical causal ecological conclusion.
 
+
+## Visual overview and reproducible demo results
+
+![EcoCausal workflow: source-aware ingestion, lexical retrieval, multi-role coordination, RDF evidence graph and separate synthetic causal and world-model modules](docs/figures/workflow_architecture.svg)
+
+The **offline** workflow uses deterministic software roles. Live Ollama/Hugging Face paths require separate model downloads and empirical evaluation.
+
+### Retrieval on hand-constructed synthetic examples
+
+![Lexical retrieval metrics on three synthetic queries and abstention for five hard-negative queries](docs/figures/synthetic_retrieval_benchmark.svg)
+
+Three authored retrieval queries achieved **Recall@5 = 1.00** in the bundled synthetic benchmark; five authored hard-negative queries returned no documents. These are **not** results from independently annotated papers, and do not demonstrate real-world semantic RAG effectiveness. Source: [`results/retrieval.json`](results/retrieval.json).
+
+### Synthetic causal model and world-model checks
+
+![Synthetic intervention effect showing true ATE 3.20, estimated ATE 3.241, 95% bootstrap interval 3.065–3.417 and one-step world-model RMSE comparison](docs/figures/synthetic_causal_world_model.svg)
+
+The assumed synthetic SCM has true intervention effect **3.20**; the standalone simulation estimated **3.241** (95% bootstrap interval **3.065–3.417**). The synthetic learned state-transition model had one-step RMSE **0.344** versus **0.408** for a persistence baseline. This does **not** establish causal effects or forecasting accuracy for real lakes. Source: [`results/simulation.json`](results/simulation.json).
+
 ## What is genuinely reproducible offline
 
 - **Source-aware ingestion:** PDF text blocks, embedded raster images, detected tables and CSV rows; page numbers and SHA-256 for local sources.
