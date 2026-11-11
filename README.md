@@ -13,23 +13,45 @@ Can an AI workflow assess the question **“Does reducing phosphorus change chlo
 This repository addresses the *method* of evidence organization and evaluation. It does **not** establish an empirical causal ecological conclusion.
 
 
-## Visual overview and reproducible demo results
+## Generated figures from project outputs
 
-![EcoCausal workflow: source-aware ingestion, lexical retrieval, multi-role coordination, RDF evidence graph and separate synthetic causal and world-model modules](docs/figures/workflow_architecture.svg)
+**These are not hand-drawn performance claims.** The four plots below are generated from the committed `results/*.json` and `results/demo/report.json`. The project includes a versioned renderer at [`scripts/plot_results.py`](scripts/plot_results.py) so you can recreate them after rerunning the pipeline.
 
-The **offline** workflow uses deterministic software roles. Live Ollama/Hugging Face paths require separate model downloads and empirical evaluation.
+### 1. Retrieval metrics on synthetic fixtures
 
-### Retrieval on hand-constructed synthetic examples
+![Recall at five and nDCG at five, plus negative-query abstention, generated from synthetic retrieval results](docs/figures/retrieval_benchmark.svg)
 
-![Lexical retrieval metrics on three synthetic queries and abstention for five hard-negative queries](docs/figures/synthetic_retrieval_benchmark.svg)
+[Input: `results/retrieval.json`](results/retrieval.json) — **3 authored questions** (Recall@5 = 1.0 on this small fixture) and **5 hard negatives** (5/5 abstain). These are neither peer-reviewed texts nor independent retrieval evaluations.
 
-Three authored retrieval queries achieved **Recall@5 = 1.00** in the bundled synthetic benchmark; five authored hard-negative queries returned no documents. These are **not** results from independently annotated papers, and do not demonstrate real-world semantic RAG effectiveness. Source: [`results/retrieval.json`](results/retrieval.json).
+### 2. Synthetic causal intervention estimate and uncertainty
 
-### Synthetic causal model and world-model checks
+![Synthetic causal effect estimate versus known simulated ground truth and bootstrap confidence interval](docs/figures/synthetic_causal_effect.svg)
 
-![Synthetic intervention effect showing true ATE 3.20, estimated ATE 3.241, 95% bootstrap interval 3.065–3.417 and one-step world-model RMSE comparison](docs/figures/synthetic_causal_world_model.svg)
+[Input: `results/simulation.json`](results/simulation.json) — true effect 3.200 versus estimated 3.241; 95% bootstrap interval 3.065–3.417. **Synthetic SCM only**, not an ecological finding.
 
-The assumed synthetic SCM has true intervention effect **3.20**; the standalone simulation estimated **3.241** (95% bootstrap interval **3.065–3.417**). The synthetic learned state-transition model had one-step RMSE **0.344** versus **0.408** for a persistence baseline. This does **not** establish causal effects or forecasting accuracy for real lakes. Source: [`results/simulation.json`](results/simulation.json).
+### 3. Synthetic world model versus persistence baseline
+
+![One-step RMSE for synthetic learned world model compared with persistence baseline](docs/figures/synthetic_world_model_rmse.svg)
+
+[Input: `results/simulation.json`](results/simulation.json) — learned one-step RMSE 0.344 versus persistence 0.408. The multi-step rollout RMSE is a separate evaluation.
+
+### 4. Source-to-claim provenance visualization
+
+![Candidate scientific co-mention claims linked to evidence IDs in the synthetic demo report](docs/figures/evidence_provenance.svg)
+
+[Input: `results/demo/report.json`](results/demo/report.json) — candidate co-mention claims linked to source IDs. A provenance edge does **not** establish factual entailment or causation.
+
+### Regenerate all four plots
+
+```bash
+# From the repository root, after installing the project:
+ecocausal demo --output results/demo
+ecocausal evaluate --output results/retrieval.json
+ecocausal simulate --output results/simulation.json
+python scripts/plot_results.py
+```
+
+The plot script uses only Python's standard library and reads the JSON **at runtime**; changing the results changes the figures. Tests and GitHub Actions check that the plot command runs without model downloads. The committed SVGs are illustrative outputs of the **synthetic offline benchmark**, not demonstrations of transformer inference, LoRA training, real-world RAG, or empirical ecology.
 
 ## What is genuinely reproducible offline
 
