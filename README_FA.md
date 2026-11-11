@@ -3,15 +3,38 @@
 **وضعیت پروژه:** نسخه اجرایی پژوهشی (Prototype). کد و تست‌های حالت آفلاین اجرا شده‌اند. داده‌های مثال کاملاً ساختگی‌اند و اثر علّی واقعی درباره دریاچه‌ها گزارش نمی‌شود.
 
 
-## نمودارهای تصویری و نتایج نسخه آفلاین
+## نمودارهای تولیدشده از خروجی واقعی کد
 
-![معماری پروژه EcoCausal-Reasoner](docs/figures/workflow_architecture.svg)
+این چهار تصویر از فایل‌های JSON موجود در مخزن ساخته شده‌اند؛ نه تصاویر مفهومی یا نتایج ادعایی. برای بازتولید همه آن‌ها، اسکریپت [`scripts/plot_results.py`](scripts/plot_results.py) را اجرا کن.
 
-![آزمون بازیابی در داده‌های مصنوعی: سه پرسش مثبت و پنج پرسش منفی](docs/figures/synthetic_retrieval_benchmark.svg)
+**۱. معیارهای بازیابی روی داده ساختگی**
 
-![مقایسه اثر علّی برآوردی و واقعی در مدل مصنوعی و خطای مدل پویای مصنوعی](docs/figures/synthetic_causal_world_model.svg)
+![نمودار معیارهای Retrieval روی داده مصنوعی](docs/figures/retrieval_benchmark.svg)
 
-**منشأ نمودارها:** فایل‌های `results/retrieval.json` و `results/simulation.json`. این خروجی‌ها صرفاً از داده‌های ساختگی و آزمایش‌های آفلاین هستند؛ دقت روی مقالات واقعی یا اجرای مدل زبانی را اثبات نمی‌کنند.
+**۲. اثر علّی تخمینی، مقدار واقعی مدل مصنوعی و بازه اطمینان**
+
+![نمودار اثر علّی مدل مصنوعی](docs/figures/synthetic_causal_effect.svg)
+
+**۳. خطای World Model در برابر مدل مبنا**
+
+![مقایسه RMSE مدل پویای مصنوعی](docs/figures/synthetic_world_model_rmse.svg)
+
+**۴. ارتباط ادعاها با شناسه منابع در گزارش Demo**
+
+![گراف Provenance ادعاها و شواهد ساختگی](docs/figures/evidence_provenance.svg)
+
+برای تولید مجدد تصویرها در ریشه مخزن:
+
+```bash
+ecocausal demo --output results/demo
+ecocausal evaluate --output results/retrieval.json
+ecocausal simulate --output results/simulation.json
+python scripts/plot_results.py
+```
+
+منبع داده‌ها: [`results/retrieval.json`](results/retrieval.json)، [`results/simulation.json`](results/simulation.json) و [`results/demo/report.json`](results/demo/report.json).
+
+**محدودیت علمی:** همه داده‌های این نمودارها مصنوعی هستند و هیچ‌کدام دقت روی مقالات واقعی، اجرای LLM یا نتیجه علّی درباره دریاچه واقعی را ثابت نمی‌کنند.
 
 ## اجرا روی Linux Mint
 
